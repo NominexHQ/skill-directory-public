@@ -1,0 +1,27 @@
+{
+  "instance": "nominex-hq",
+  "generated": "2026-03-24T12:06:19Z",
+  "skills": [
+    {
+      "name": "pmm:query",
+      "source": "plugin",
+      "plugin": "pmm",
+      "version": "2.4.0",
+      "tier": "A",
+      "scope": "project",
+      "description": "Query memory \u2014 context-first recall with deep traversal across vectors, graph, and taxonomy when needed.",
+      "argument_hint": "<question or search term>"
+    },
+    {
+      "name": "pmm:save",
+      "source": "plugin",
+      "plugin": "pmm",
+      "version": "2.4.0",
+      "tier": "A",
+      "scope": "project",
+      "description": "Save current session to memory \u2014 dispatches maintain agent, updates memory files, commits to git.",
+      "argument_hint": "[optional notes about what changed]"
+    }
+  ],
+  "visibility": "public"
+}
