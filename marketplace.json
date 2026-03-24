@@ -2,7 +2,7 @@
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "nominex-hq",
   "description": "Skill directory for nominex-hq",
-  "generated": "2026-03-24T12:13:37Z",
+  "generated": "2026-03-24T12:21:21Z",
   "owner": {
     "name": "NominexHQ",
     "email": "hello@nominex.org"
