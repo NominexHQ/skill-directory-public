@@ -1,8 +1,8 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "nominex-hq",
-  "description": "Skill directory for nominex-hq",
-  "generated": "2026-03-24T12:21:21Z",
+  "description": "Nominex skill directory \u2014 plugins and standalone skills for agent teams",
+  "generated": "2026-03-24T12:33:02Z",
   "owner": {
     "name": "NominexHQ",
     "email": "hello@nominex.org"
@@ -16,11 +16,36 @@
       },
       "category": "productivity",
       "source": {
-        "source": "url"
+        "source": "url",
+        "url": "https://github.com/NominexHQ/pmm-plugin.git",
+        "sha": "4d67ddda7b64b19b032fb7e6c1613c1ad78c6854"
       },
-      "homepage": "https://github.com/NominexHQ/poor-man-memory",
       "version": "2.4.0",
       "skills": [
+        {
+          "name": "pmm:dump",
+          "description": "Dump PMM memory state as ASCII art in the terminal. Three depth levels: status (heatmap only), summary (heatmap + clusters + timeline), detailed (full ASCII). Runs as a subagent. Use when the user runs /pmm:dump or asks for a text-based memory overview.",
+          "tier": "A",
+          "argument_hint": "[status|summary|detailed]"
+        },
+        {
+          "name": "pmm:hydrate",
+          "description": "Populate empty or thin memory files from current session context. Supports single file, batch, and force re-hydration.",
+          "tier": "A",
+          "argument_hint": "[file.md|--all] [--force]"
+        },
+        {
+          "name": "pmm:init",
+          "description": "Initialize Poor Man's Memory in your project \u2014 runs preference wizard, scaffolds memory/ directory, configures hooks.",
+          "tier": "A",
+          "argument_hint": "[project-name]"
+        },
+        {
+          "name": "pmm:init-local-skills",
+          "description": "Install local skill variants for Cowork compatibility. Creates symlinks from .claude/skills/pmm-* to pre-built cached local skills shipped with the plugin. Run once per project. Idempotent.",
+          "tier": "A",
+          "argument_hint": "[--force to overwrite existing]"
+        },
         {
           "name": "pmm:query",
           "description": "Query memory \u2014 context-first recall with deep traversal across vectors, graph, and taxonomy when needed.",
@@ -28,12 +53,40 @@
           "argument_hint": "<question or search term>"
         },
         {
+          "name": "pmm:recall",
+          "description": "Context-switching recall \u2014 synthesizes a focused briefing on a topic from across all memory files. Use when switching workstreams or coming back to a topic.",
+          "tier": "A",
+          "argument_hint": "[topic]"
+        },
+        {
           "name": "pmm:save",
           "description": "Save current session to memory \u2014 dispatches maintain agent, updates memory files, commits to git.",
           "tier": "A",
           "argument_hint": "[optional notes about what changed]"
+        },
+        {
+          "name": "pmm:settings",
+          "description": "Change Poor Man's Memory configuration. Re-presents preference prompts for save cadence, commit behaviour, push behaviour, sliding window size, verbosity, repository visibility, maintain agent model, maintain strategy, readonly agent model, session start mode, recall beyond window, secrets_git, pre-compact hook, active files, and load strategies. Use when the user runs /pmm:settings or asks to change memory system settings.",
+          "tier": "A"
+        },
+        {
+          "name": "pmm:status",
+          "description": "Quick PMM health dashboard. Shows initialization state, last save time, recent commits, file health, and warnings. Runs as a subagent. Use when the user runs /pmm:status or asks if memory is saving, working, or healthy.",
+          "tier": "A"
+        },
+        {
+          "name": "pmm:update",
+          "description": "Check for and apply updates to Poor Man's Memory system files from upstream. Compares local version to latest upstream, shows what changed, and applies updates to system files only \u2014 never touches memory/ or user data. Use when the user runs /pmm:update or asks to update PMM.",
+          "tier": "A"
+        },
+        {
+          "name": "pmm:viz",
+          "description": "Interactive D3.js memory graph visualization with time slider. Parses all memory files across git history, builds a force-directed graph with temporal navigation, and opens it in the browser. Runs as a subagent. Use when the user runs /pmm:viz or asks to visualize their memory as an interactive graph.",
+          "tier": "A",
+          "argument_hint": "[graph|clusters|timeline]"
         }
-      ]
+      ],
+      "homepage": "https://github.com/NominexHQ/poor-man-memory"
     }
   ],
   "visibility": "public"
