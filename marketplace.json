@@ -1,0 +1,40 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "nominex-hq",
+  "description": "Skill directory for nominex-hq",
+  "generated": "2026-03-24T12:13:37Z",
+  "owner": {
+    "name": "NominexHQ",
+    "email": "hello@nominex.org"
+  },
+  "plugins": [
+    {
+      "name": "pmm",
+      "description": "By Monday, you're re-explaining choices you made on Thursday. PMM fixes that. Every session, Claude loads what it already knows, then adds to it. Structured flat files, git-backed. No database, no setup. Decisions tracked with rationale, not just what but why. git log is your memory audit trail. Memory that compounds, not rots.",
+      "author": {
+        "name": "NominexHQ"
+      },
+      "category": "productivity",
+      "source": {
+        "source": "url"
+      },
+      "homepage": "https://github.com/NominexHQ/poor-man-memory",
+      "version": "2.4.0",
+      "skills": [
+        {
+          "name": "pmm:query",
+          "description": "Query memory \u2014 context-first recall with deep traversal across vectors, graph, and taxonomy when needed.",
+          "tier": "A",
+          "argument_hint": "<question or search term>"
+        },
+        {
+          "name": "pmm:save",
+          "description": "Save current session to memory \u2014 dispatches maintain agent, updates memory files, commits to git.",
+          "tier": "A",
+          "argument_hint": "[optional notes about what changed]"
+        }
+      ]
+    }
+  ],
+  "visibility": "public"
+}
